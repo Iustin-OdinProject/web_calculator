@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calcultate to infinity</title>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <style>
+            .container{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                background-color: bisque;
+                margin: 5% 40%;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .result{
+                padding: 10px;
+                padding-right: 25px;
+                border-radius: 10px;
+                background-color: white;
+            }
+
+            h3{
+                font-weight: 500;
+                font-size: 22px;
+                padding: 0px;
+                margin: 0px;
+                text-align: end;
+            }
+            .elementar{
+                display: flex;
+                gap: 10px;
+                align-items: start;
+                padding: 10px 0px;
+                margin-top: 10px;
+            }
+            .elementar button{
+                flex-grow: 1;
+                padding: 10px;    
+            }
+            .grid{
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                gap: 7.5px;
+                grid-template-rows: auto auto auto auto auto;
+                margin-top: 10px;
+            }
+            .grid > button{
+                margin: 2.5px 0px;
+                padding:10px 0px;
+            }
+        </style>
+        <div class="container">
+            <div class="result">
+                <h3 id="label_result">‎ ‎</h3>
+            </div>
+            <div class="elementar">
+                <button id="clear">CLEAR</button>
+                <button id="delete">DELETE</button>
+            </div>
+            <div class="grid calculator">
+                <button id="7" class="no">7</button>
+                <button id="8" class="no">8</button>
+                <button id="9" class="no">9</button>
+                <button id="mod" class="op">÷</button>
+                <button id="4" class="no">4</button>
+                <button id="5" class="no">5</button>
+                <button id="6" class="no">6</button>
+                <button id="mult" class="op">x</button>
+                <button id="1" class="no">1</button>
+                <button id="2" class="no">2</button>
+                <button id="3" class="no">3</button>
+                <button id="dif" class="op">-</button>
+                <button id="sep" class="no">.</button>
+                <button id="0" class="no">0</button>
+                <button id="equ" class="op">=</button>
+                <button id="sum" class="op">+</button>
+            </div>
+        </div>
+    </body>
+</html>
