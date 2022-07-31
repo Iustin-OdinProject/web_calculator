@@ -3,7 +3,7 @@ const label = document.querySelector('#label_result');
 const clear = document.querySelector('#clear');
 const operations = document.querySelectorAll('.op');
 const del = document.querySelector('#delete');
-
+const equ = document.querySelector('#equ');
 let a='';
 let op = ''
 let b='';
@@ -35,6 +35,11 @@ del.addEventListener('click', () =>
     }
     
 })
+equ.addEventListener('click', () => {
+    if(a!='' && op!='' && b!='')
+        operate(a,b,op);
+        label.textContent = a;
+})
 clear.addEventListener('click', () => {
     a='';
     b='';
@@ -43,17 +48,11 @@ clear.addEventListener('click', () => {
 })
 operations.forEach(element => {
     element.addEventListener('click',() => {
-        if(element.textContent != '=' && a!='')
+        if(a!='')
         {
             label.textContent = element.textContent;
             op = element.getAttribute('id');
-        }
-        else
-        {
-            if(b!='' && a!='')
-                operate(a,b,op)
-        }
-        
+        }        
     })
 });
 numbers.forEach(element => {
@@ -84,6 +83,7 @@ numbers.forEach(element => {
             else
                 b=b+element.getAttribute('id');
             label.textContent = b;
+            operate(a,b,op);
         }
     })
 });
@@ -91,21 +91,21 @@ numbers.forEach(element => {
 function operate(first,second,oper){
     switch(oper){
         case 'sum':
-            label.textContent  = Number(first)+Number(second);
+            
             a=Number(first)+Number(second);
             b='';
             op='';
             calc = true;
             break;
         case 'dif':
-            label.textContent  = Number(first)-Number(second);
+            
             a=Number(first)-Number(second)
             b='';
             op='';
             calc = true;
             break;
         case 'mult':
-            label.textContent  = Number(first)*Number(second);
+            
             a=Number(first)*Number(second);
             b='';
             op='';
@@ -113,13 +113,13 @@ function operate(first,second,oper){
             break;
         case 'mod':
             if (Number(first) == 0)
-                label.textContent='error';
+            {   label.textContent='error';
                 a='';
                 b='';
                 op='';
                 calc = true;
-                break;
-            label.textContent  = Number(first)/Number(second);
+                break
+            }
             a=Number(first)/Number(second);
             b='';
             op='';
